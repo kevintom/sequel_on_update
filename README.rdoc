@@ -1,0 +1,20 @@
+= sequel_sanitize
+
+== Usage
+
+This plug-in provide functionality to allow Sequel::Model to have hooks called when a 
+column is updated on a model. (this implies an existing record, not a new one)
+
+To use plug-in you add plug-in to your model:
+
+  class MyModel < Sequel::Model
+    plugin :on_update, :fields => [:first_name, :last_name], :hook => :name_changed
+  end
+
+You can use following options:
+*fields*:: an array of the fields that will call the hook method when a change to the field occurs
+*hook*:: Proc or Symbol to call
+
+== Copyright
+
+Copyright (c) 2011 Kevin Tom. See LICENSE for details.
